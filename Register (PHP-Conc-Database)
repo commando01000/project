@@ -1,0 +1,28 @@
+<?php
+$host = "localhost";
+$user = "root";
+$pk = "";
+$jname = "test2"; 
+
+
+$firstname = $_POST["name"];
+$email = $_POST["email"];
+$website = $_POST["website"];
+$comment = $_POST["comment"];
+$gender = $_POST["gender"];
+
+$conn = new mysqli('localhost','root','','test2');
+if($conn = mysqli_connect($host, $user, $pk, $jname))
+{
+    echo "Registration successfully...";
+
+        $stmt = $conn->prepare("INSERT INTO registration(namme, gender, email, website, comment) values('$firstname', '$gender', '$email', '$website','$comment')");
+        $execval = $stmt->execute();
+		$stmt->close();
+		$conn->close();
+}
+else
+{
+    die("failed to connect !");
+}
+?>
