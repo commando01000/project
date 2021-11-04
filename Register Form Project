@@ -1,0 +1,1 @@
+CREATE TABLE `project`.`registration form` ( `id` INT NOT NULL AUTO_INCREMENT , `name` INT NOT NULL , `gender` INT NOT NULL , `age` INT NOT NULL , `job` INT NOT NULL , `marital status` ENUM('Single','Married','Engaged','Widow') NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
