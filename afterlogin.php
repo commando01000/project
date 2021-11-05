@@ -14,8 +14,8 @@
 
 <form method="post" action="regFP.php">
 <div class="container">
-<h1>Login </h1>
- <p>Please fill in this form to create an account.</p>
+<h1>Choose Your Action</h1>
+
 
 
 <hr>
