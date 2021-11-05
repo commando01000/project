@@ -1,1 +1,0 @@
-CREATE TABLE `project`.`registration` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `gender` ENUM('male','female','other') NOT NULL , `age` INT(3) NOT NULL , `job` VARCHAR(100) NOT NULL , `marital status` ENUM('single','married','engaged') NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
