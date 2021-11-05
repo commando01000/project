@@ -3,13 +3,21 @@
 </head>
 <body>  
 
-
-
-<h1>Register</h1>
- <p>Please fill in this form to create an account.</p>
+<head>
+  <link rel="stylesheet" href="cssF.css">
+</head>
+<ul>
+    <li><a class="active" href="#home"></a></li>
+    <li><a href="#news">  </a></li>
+  <li><a href="#contact">  </a></li>
+  </ul>
 
 <form method="post" action="LoginFA.php">
 <div class="container">
+<h1>Register</h1>
+ <p>Please fill in this form to create an account.</p>
+
+
 <hr>
   Name: <input type="text" placeholder="Enter Name" name="Name"required>
   <br><br>
