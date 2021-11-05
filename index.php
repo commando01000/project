@@ -8,8 +8,8 @@
 </head>
 
 <ul>
-    <li><a class="active" href="#home"></a></li>
-    <li><a href="#news">  </a></li>
+  <li><a href="index"></a></li>
+  <li><a href="#news">  </a></li>
   <li><a href="#contact">  </a></li>
   </ul>
   
