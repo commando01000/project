@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="cssF.css">
 </head>
 <ul>
-    <li><a class="active" href="#home"></a></li>
-    <li><a href="#news">  </a></li>
+  <li><a href="index">Home</a></li>
+  <li><a href="LoginFA">Login</a></li>
   <li><a href="#contact">  </a></li>
   </ul>
 
