@@ -13,7 +13,7 @@
   <li><a href="#contact">  </a></li>
   </ul>
 
-<form method="post" action="">
+<form method="post" action="patient questions edit1.html">
 <div class="container">
 
 <h1>Make profile for patient</h1>
@@ -46,7 +46,7 @@
   <br><br>
   Complaints of family and companions: <textarea name="Complaints of family and companions" placeholder="Enter Complaints of family and companions" rows="5" cols="40"required></textarea>
   <br><br>
-  <input type="submit" class="registerbtn" name="submit" value="Submit">  
+  <input type="submit" class="registerbtn" name="submit" value="Next">  
   <hr>
   </div>
 </form>
