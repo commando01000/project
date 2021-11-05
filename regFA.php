@@ -25,6 +25,11 @@
   <br><br>
   Password: <input type="Password" name="assword" placeholder="Enter Password"required>
   <br><br>
+  Job:
+  <input type="radio" name="job" value="Servant">Servant
+  <input type="radio" name="job" value="Servant">Supervisor
+  <br><br>
+
   
 
   <input type="submit" class="registerbtn" name="submit" value="Create Account">  
