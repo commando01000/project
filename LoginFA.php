@@ -3,21 +3,34 @@
 </head>
 <body>  
 
+<head>
+  <link rel="stylesheet" href="cssF.css">
+</head>
+<ul>
+    <li><a class="active" href="#home"></a></li>
+    <li><a href="#news">  </a></li>
+  <li><a href="#contact">  </a></li>
+  </ul>
 
-
-<h1>Login </h1>
+<form method="post" action="LoginFA.php">
+<div class="container">
+<h1>Register</h1>
  <p>Please fill in this form to create an account.</p>
 
-<form method="post" action="afterlogin.php">
-<div class="container">
+
 <hr>
-Username: <input type="text" placeholder="Enter  Username" name=" username"required>
-<br><br>
-Password: <input type="Password" name="password" placeholder="Enter Password"required>
-<br><br>
-  <input type="submit" class="registerbtn" name="submit" value="Login">  
+  Name: <input type="text" placeholder="Enter Name" name="Name"required>
+  <br><br>
+  Username: <input type="text" placeholder="Enter  Username" name=" Username"required>
+  <br><br>
+  Password: <input type="Password" name="assword" placeholder="Enter Password"required>
+  <br><br>
+  
+
+  <input type="submit" class="registerbtn" name="submit" value="Create Account">  
   <hr>
   </div>
 </form>
+
 </body>
 </html>
