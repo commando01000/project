@@ -4,11 +4,20 @@
 <body>  
 
 
-
-<h1>Make profile for patient</h1>
+<head>
+  <link rel="stylesheet" href="cssF.css">
+</head>
+<ul>
+    <li><a class="active" href="#home"></a></li>
+    <li><a href="#news">  </a></li>
+  <li><a href="#contact">  </a></li>
+  </ul>
 
 <form method="post" action="">
 <div class="container">
+
+<h1>Make profile for patient</h1>
+
 <hr>
   Name of patient: <input type="text" placeholder="Enter Name of patient" name="name of patient"required>
   <br><br>
@@ -22,7 +31,7 @@
   <br><br>
   Social status: <input type="text" name="Enter Social status" placeholder="Enter  Social status"required>
   <br><br>
-  Number in the family: <input type="Number in the family" placeholder="Enter Number in the family" required>
+  Number in the family: <input type="text" placeholder="Enter Number in the family" required>
   <br><br>
   Adress: <input type="text" placeholder="Home Adress" required>
   <br><br>
@@ -41,6 +50,5 @@
   <hr>
   </div>
 </form>
-
 </body>
 </html>
