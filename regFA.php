@@ -9,12 +9,12 @@
 <ul>
   <li><a href="index">Home</a></li>
   <li><a href="LoginFA">Login</a></li>
-  <li><a href="#contact">  </a></li>
+  <li><a href="afterlogin">Choose your action</a></li>
   </ul>
 
 <form method="post" action="LoginFA.php">
 <div class="container">
-<h1>Register</h1>
+<h1>Register for servant</h1>
  <p>Please fill in this form to create an account.</p>
 
 
@@ -25,12 +25,7 @@
   <br><br>
   Password: <input type="Password" name="assword" placeholder="Enter Password"required>
   <br><br>
-  Job:
-  <input type="radio" name="job" value="Servant">Servant
-  <input type="radio" name="job" value="Servant">Supervisor
-  <br><br>
 
-  
 
   <input type="submit" class="registerbtn" name="submit" value="Create Account">  
   <hr>
