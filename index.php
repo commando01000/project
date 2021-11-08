@@ -27,12 +27,6 @@
   <hr>
   </div>
 </form>
-<form method="post" action="regFA.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Sign up">  
-      <hr>
-      </div>
-    </form>
+
 </body>
 </html>
