@@ -13,7 +13,7 @@
   <li><a href="afterlogin">Choose your action</a></li>
   </ul>
 
-<form method="post" action="patient questions edit1.html">
+<form method="post" action="PQ">
 <div class="container">
 
 <h1>Make profile for patient</h1>
@@ -33,13 +33,15 @@
   <br><br>
   Number in the family: <input type="text" placeholder="Enter Number in the family" required>
   <br><br>
-  Adress: <input type="text" placeholder="Home Adress" required>
+  Adress: <input type="text" placeholder="Home Adress" name="Adress"required>
   <br><br>
-  Home number: <input type="number" placeholder="Enter Home number" required>
+  Home number: <input type="number" placeholder="Enter Home number" name="Home number"required>
   <br><br>
-  mobile number: <input type="number" placeholder="Enter mobile number" required>
+  mobile number: <input type="number" placeholder="Enter mobile number"name="mobile number" required>
   <br><br>
-  supervisor number: <input type="number" placeholder="Enter supervisor number" required>
+  Servant name: <input type="text" placeholder="Enter Servant name" name="Servant name"required>
+  <br><br>
+  Servant number: <input type="number" placeholder="Enter Servant number"name="Servant number" required>
   <br><br>
   patient Complaints: <textarea name="patient Complaint" placeholder="Enter patient Complaint" rows="5" cols="40"required></textarea>
 
