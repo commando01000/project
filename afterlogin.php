@@ -14,9 +14,7 @@
 
 <form method="post" action="regFP.php">
 <div class="container">
-<h1>Choose Your Action</h1>
-
-
+<h1>Choose Your Action </h1>
 
 <hr>
 <br><br>
@@ -24,5 +22,12 @@
   <hr>
   </div>
 </form>
+<form method="post" action="regFA.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Sign up">  
+      <hr>
+      </div>
+    </form>
 </body>
 </html
