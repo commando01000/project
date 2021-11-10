@@ -17,7 +17,8 @@
 <h1>Choose Your Action </h1>
 
 <hr>
-<br><br>
+
+
   <input type="submit" class="registerbtn" name="submit" value="Make profile for patient">  
   <hr>
   </div>
@@ -25,9 +26,16 @@
 <form method="post" action="regFA.php">
     <div class="container">
     <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Sign up">  
+      <input type="submit" class="registerbtn" name="submit" value="Add Servant">  
       <hr>
       </div>
-    </form>
+</form>
+<form method="post" action="don.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Add Donator">  
+      <hr>
+      </div>
+</form>
 </body>
 </html
