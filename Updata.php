@@ -23,7 +23,7 @@ New Name:<input type="text" placeholder="Enter New Name" name="New Name"required
 New password:<input type="text" placeholder="Enter password" name="New password"required>
 
 New UserName:<input type="text" placeholder="Enter UserName" name="NewUserName"required>
-<input type="submit" class="registerbtn" name="submit" value="Updata ">   
+<input type="submit" class="registerbtn" name="submit" value="Update">   
 <hr>
 </div>
 </form>
