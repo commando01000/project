@@ -95,17 +95,21 @@
             }
 
         }
-        function update ($id,$name)
+         function update($id,$name,$username,$password)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from admins where id='$id'or namee = '$name'";
+            $sql = "SELECT * from admins where id='$id'";
             $row = mysqli_query($con,$sql);
             $num = mysqli_num_rows($row);
-            if($num == 0)
+            if($num == 1)
             {
                 $go = mysqli_query($con,$sql) or die (mysqli_error($con));  
-                $sql2="UPDATE admins SET name='$name'WHERE id='$id'";
+                $sql2 = "UPDATE admins SET namee ='$name' , username = '$username' , passwordd = '$password' WHERE id ='$id'";
                 $go = mysqli_query($con,$sql2) or die (mysqli_error($con));
+            }
+            else
+            {
+                echo "user not found !";
             }
         }
         function insert($name,$username,$password,$type)
