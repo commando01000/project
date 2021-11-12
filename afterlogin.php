@@ -23,13 +23,7 @@
   <hr>
   </div>
 </form>
-<form method="post" action="regFA.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Add Servant">  
-      <hr>
-      </div>
-</form>
+
 <form method="post" action="don.php">
     <div class="container">
     <hr>
