@@ -37,5 +37,19 @@
       <hr>
       </div>
 </form>
+  <form method="post" action="">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Update">  
+      <hr>
+      </div>
+</form>
+<form method="post" action="">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Delete">  
+      <hr>
+      </div>
+</form>
 </body><!-- Mortaga -->
 </html
