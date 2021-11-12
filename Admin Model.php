@@ -81,19 +81,21 @@
                 }
             }
         }
-        function delete($id,$name)
+        function delete($id)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from admins where id='$id'or namee = '$name'"; 
+            $sql = "SELECT * from admins where id = '$id'";
             $row = mysqli_query($con,$sql);
             $num = mysqli_num_rows($row);
-            if($num == 0)
-            {
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));  
-                $sql = "DELETE FROM admins WHERE namee = '$name' or id = '$id'";
+            if($num == 1)
+            { 
+                $sql = "DELETE FROM admins WHERE  id = '$id'";
                 $go = mysqli_query($con,$sql) or die (mysqli_error($con));
             }
-
+            else
+            {
+                echo "user not found !";
+            }
         }
          function update($id,$name,$username,$password)
         {
