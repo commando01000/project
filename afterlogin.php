@@ -44,6 +44,12 @@
       <input type="submit" class="registerbtn" name="submit" value="Delete">  
       <hr>
       </div>
+</form><form method="post" action="Admin View.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="View">  
+      <hr>
+      </div>
 </form>
 </body><!-- Mortaga -->
 </html
