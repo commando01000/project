@@ -9,7 +9,7 @@
 <ul>
   <li><a href="index">Home</a></li>
   <li><a href="LoginFA">Login</a></li>
-  <li><a href="#contact">  </a></li>
+  <li><a href="afterlogin">Choose your action</a></li>
   </ul>
 
 <form method="post" action="regFP.php">
