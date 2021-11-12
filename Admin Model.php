@@ -125,6 +125,10 @@
                         $sql = "INSERT INTO admins(namee,usertypeID,username,passwordd) VALUES('$name',3,'$username','$password')";
                     }
                 }
+                else
+                {
+                    echo "user already exists ! ";
+                }
                 mysqli_query($con,$sql) or die(mysql_error());
                 echo "Registered Successfully ! ";
             }
