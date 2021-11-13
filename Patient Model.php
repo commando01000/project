@@ -102,7 +102,7 @@ class patient
             $search = mysqli_num_rows($row);
             if($search == 0)
             {
-                $sql = "INSERT INTO reg_patients (namee,gender,age,job,marital_status,number_in_family,addresss,phone_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')"
+                $sql = "INSERT INTO reg_patients (namee,gender,age,job,marital_status,number_in_family,addresss,phone_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')";
             }
         }
         $con->close();
