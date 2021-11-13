@@ -23,7 +23,7 @@ class patient
     {
         if(!$Id == "")
         {
-            $con = mysqli_connect("localhost","root","","project")
+            $con = mysqli_connect("localhost","root","","project");
             if(!$con)
             {
                 die('Could not connect:' . mysqli_error())
