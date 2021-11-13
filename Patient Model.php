@@ -41,7 +41,7 @@ class patient
                     $this->Job = $row["job"];
                     $this->MaritalStatus = $row["marital_status"];
                     $this->NumberInFamily = $row["number_in_family"];
-                    $this->Address = $row["address"];
+                    $this->Address = $row["addresss"];
                     $this->PhoneNumber = $row["phone_no"];
                     $this->HomeNumber = $row["home_no"];
                     $this->SupervisedBy = $row["supervised_by"];
