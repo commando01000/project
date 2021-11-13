@@ -87,7 +87,7 @@ class patient
         }
         $con->close();
     }
-    function Insert($ID,$NAME,$Gender,$Age,$Job,$MaritalStatus,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
+    function Insert($NAME,$Gender,$Age,$Job,$MaritalStatus,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
     {
         $con = mysqli_connect("localhost","root","","project");
         if(!$con)
