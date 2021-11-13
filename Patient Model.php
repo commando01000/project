@@ -34,7 +34,7 @@ class patient
                 $PatientData = mysqli_query($con,$sql);
                 if($row = mysqli_fetch_array($PatientData))
                 {
-                    $this->ID = $row["id"];
+                    $this->Id = $row["id"];
                     $this->Name = $row["name"];
                     $this->Gender = $row["gender"];
                     $this->Age = $row["age"];
