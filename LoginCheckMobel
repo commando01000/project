@@ -1,0 +1,31 @@
+<?php
+    class LoginCheck
+    {
+        public $username;
+        public $password;
+        function __construct($username,$password)
+        {
+            $con = mysqli_connect("localhost","root","","project");
+            if(!$con)
+            {
+                die('Could not connect:' . mysqli_error());
+            }
+            else
+            {
+                $sql="SELECT * FROM admins WHERE username = $username AND passwordd = $passwordd";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 1)
+                {
+                    header('Location:afterlogin.php');
+                }
+                else
+                {
+                    echo "user not found !";
+                }
+            }
+        }
+    }
+?>
+اكتب إلى Mahmoud Ebrahim Morsi
+Aa
