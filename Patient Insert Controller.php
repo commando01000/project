@@ -1,5 +1,5 @@
 <?php
-include_once 'Patient Model.pphp';
+include_once 'Patient Model.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
