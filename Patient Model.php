@@ -77,7 +77,7 @@ class patient
         $search = mysqli_num_rows($row);
         if($search == 1)
         {
-            $sql = "UPDATE reg_patients SET namee = $NAME , gender = $Gender , age = $Age , job = $Job , marital_status = $MaritalStatus , number_in_family = $NumberInFamily ,
+            $sql = "UPDATE reg_patients SET namee = $NAME , gender = $Gender , age = $Age , job = $Job , marital_status = $Social status , number_in_family = $NumberInFamily ,
              addresss = $Address , phone_no = $PhoneNumber , home_no = $HomeNumber , supervised_by = $SupervisedBy , patient_complain = $PatientComplain , complain = $Complain";
             $do = mysqli_query($con,$sql);
         }
