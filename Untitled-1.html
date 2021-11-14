@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>  
+
+
+<head>
+  <link rel="stylesheet" href="cssF.css">
+</head>
+<ul>
+  <li><a href="index">Donation</a></li>
+  <li><a href="LoginFA">Login</a></li>
+  <li><a href="afterlogin">Choose your action</a></li>
+  </ul>
+<form method="post" action="PQ">
+<div class="container">
+<h1>Make Donation</h1>
+<hr>
+  Name of Donator ID: <input type="number" placeholder="Enter Name of Donator ID" name="Donator ID"required>
+  <br><br>
+  Donatated Item Type: <input list="Items" placeholder="Donatated Item Type" name="Item Type"required>
+  <br><br>
+  Donatated Item Quantity <input type="number" placeholder="Donatated Item Quantity" name="Item Quantity"required>
+  <datalist id="Items">
+    <option value="Money" onselect="mathod()">
+    <option value="Computer">
+    <option value="Mobile">
+    <option value="Blanket">
+    <option value="other">
+  </datalist>
+  <div id="a">
+  </div>
+  
+  <br><br>
+      <input type="submit" class="registerbtn" name="submit" value="Create" onclick="mathod()">  
+      <hr>
+  <hr>
+</div>
+
+</form>
+    <script>
+      function mathod()
+      {
+        var x = document.getElementById("ITems").selectedIndex;
+         alert("fahk");
+      }
+      
+    </script>
+</body>
+</html>
