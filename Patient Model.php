@@ -15,13 +15,9 @@ class patient
     public $SupervisedBy;
     public $PatientComplain;
     public $Complain;
-    function __construct()
+    function __construct($Id)
     {
-
-    }
-    function Convert_Patient($Id)
-    {
-        if(!$Id == "")
+         if(!$Id == -1)
         {
             $con = mysqli_connect("localhost","root","","project");
             if(!$con)
