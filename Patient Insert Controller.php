@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $PatientComplain = trim($_POST["patient Complaint"]);
     $Complain = trim($_POST["Complaints of family and companions"]);
     
-    $InsertPatient = new patient();
+    $InsertPatient = new patient(-1);
     $InsertPatient->Insert($NAME,$Gender,$Age,$Job,$MaritalStatus,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain);
     header("Location: afterlogin.php");
 }
