@@ -49,6 +49,60 @@
                 echo "user not found !";
             }
         }
+        public function Pay($id,$donator_id,$amt,$type)
+            {     
+            
+                    $con = mysqli_connect("localhost","root","","project");
+                    if(!$con)
+                    {
+                        die('Could not connect:' . mysqli_error());
+                    }
+                    else
+                    {
+                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                        $row = mysqli_query($con,$sql);
+                        $num = mysqli_num_rows($row);
+                        if($num == 0)
+                        {
+                            if($type == "computer")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            }
+                            if($type == "money")
+                            {
+                                
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                                if($type2 == "visa")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
+                                }
+                                if($type2 == "cash")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
+                                }
+                                if($type2 == "fawry")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
+                                }
+                            }
+                            if($type == "blankets")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                            }
+                            if($type == "mobile")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                            }
+                        }
+                        else
+                        {
+                            echo "user already exists ! ";
+                        }
+                        mysqli_query($con,$sql) or die(mysql_error());
+                        echo "Registered Successfully ! ";
+                    }
+            }
+        }
         function update_donation($id)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
@@ -108,6 +162,60 @@
                 echo "user not found !";
             }
         }
+        public function Pay($id,$donator_id,$amt,$type)
+            {     
+            
+                    $con = mysqli_connect("localhost","root","","project");
+                    if(!$con)
+                    {
+                        die('Could not connect:' . mysqli_error());
+                    }
+                    else
+                    {
+                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                        $row = mysqli_query($con,$sql);
+                        $num = mysqli_num_rows($row);
+                        if($num == 0)
+                        {
+                            if($type == "computer")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            }
+                            if($type == "money")
+                            {
+                                
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                                if($type2 == "visa")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
+                                }
+                                if($type2 == "cash")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
+                                }
+                                if($type2 == "fawry")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
+                                }
+                            }
+                            if($type == "blankets")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                            }
+                            if($type == "mobile")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                            }
+                        }
+                        else
+                        {
+                            echo "user already exists ! ";
+                        }
+                        mysqli_query($con,$sql) or die(mysql_error());
+                        echo "Registered Successfully ! ";
+                    }
+            }
+        }
         function update_donation($id)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
@@ -165,6 +273,60 @@
             else
             {
                 echo "user not found !";
+            }
+        }
+        public function Pay($id,$donator_id,$amt,$type)
+            {     
+            
+                    $con = mysqli_connect("localhost","root","","project");
+                    if(!$con)
+                    {
+                        die('Could not connect:' . mysqli_error());
+                    }
+                    else
+                    {
+                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                        $row = mysqli_query($con,$sql);
+                        $num = mysqli_num_rows($row);
+                        if($num == 0)
+                        {
+                            if($type == "computer")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            }
+                            if($type == "money")
+                            {
+                                
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                                if($type2 == "visa")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
+                                }
+                                if($type2 == "cash")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
+                                }
+                                if($type2 == "fawry")
+                                {
+                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
+                                }
+                            }
+                            if($type == "blankets")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                            }
+                            if($type == "mobile")
+                            {
+                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                            }
+                        }
+                        else
+                        {
+                            echo "user already exists ! ";
+                        }
+                        mysqli_query($con,$sql) or die(mysql_error());
+                        echo "Registered Successfully ! ";
+                    }
             }
         }
         function update_donation($id)
