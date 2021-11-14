@@ -38,7 +38,7 @@
       <hr>
       </div>
 </form>
-   <form method="post" action="">
+   <form method="post" action="Front End Patient Update Form.php">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="Update Patient">  
