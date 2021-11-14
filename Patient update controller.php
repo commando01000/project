@@ -3,18 +3,18 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $NAME = $Gender = $Age = $Job = $Maritalstatus = $NumberInFamily = $Address = $PhoneNunber = $HomeNumber = $SupervisedBy = $PatientComplain = $Complain = "";
-        $NAME = trim($_POST["namee"]);
+        $NAME = trim($_POST["name of patient"]);
         $Gender = trim($_POST["gender"]);
-        $Age = trim($_POST["age"]);
-        $Job = trim($_POST["job"]);
-        $Maritalstatus = trim($_POST["marital_status"]);
-        $NumberInFamily = trim($_POST["number_in_family"]);
-        $Address = trim($_POST["adresss"]);
-        $PhoneNumber = trim($_POST["phone_no"]);
-        $HomeNumber = trim($_POST["home_no"]);
-        $SupervisedBy = trim($_POST["supervisd_by"]);
-        $PatientComplain = trim($_POST["patient_complain"]);
-        $Complain = trim($_POST["complain"]);
+        $Age = trim($_POST["age of patient"]);
+        $Job = trim($_POST["patient job"]);
+        $Maritalstatus = trim($_POST["Enter Social status"]);
+        $NumberInFamily = trim($_POST["rank"]);
+        $Address = trim($_POST["Adress"]);
+        $PhoneNumber = trim($_POST["mobile number"]);
+        $HomeNumber = trim($_POST["Home number"]);
+        $SupervisedBy = trim($_POST["Supervised by"]);
+        $PatientComplain = trim($_POST["patient Complaint"]);
+        $Complain = trim($_POST["Complaints of family and companions"]);
         $UpdatePatient = new patient();
         $UpdatePatient->Update($NAME , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $PhoneNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain);
         header("Location:afterlogin.php");
