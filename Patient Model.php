@@ -10,7 +10,7 @@ class patient
     public $Social status;
     public $NumberInFamily;
     public $Address;
-    public $PhoneNumber;
+    public $MobileNumber;
     public $HomeNumber;
     public $SupervisedBy;
     public $PatientComplain;
@@ -42,7 +42,7 @@ class patient
                     $this->Social status = $row["Social_status"];
                     $this->NumberInFamily = $row["number_in_family"];
                     $this->Address = $row["addresss"];
-                    $this->PhoneNumber = $row["phone_no"];
+                    $this->MobileNumber = $row["Mobile_no"];
                     $this->HomeNumber = $row["home_no"];
                     $this->SupervisedBy = $row["supervised_by"];
                     $this->PatientComplain = $row["patient_complain"];
@@ -69,7 +69,7 @@ class patient
         }
         $con->close();
     }
-    function Update($ID,$NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
+    function Update($ID,$NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$MobileNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
     {
         $con = mysqli_connect("localhost","root","","project");
         $sql = "SELECT * FROM reg_patients WHERE id = $Id";
@@ -78,7 +78,7 @@ class patient
         if($search == 1)
         {
             $sql = "UPDATE reg_patients SET namee = $NAME , gender = $Gender , age = $Age , job = $Job , Social_status = $Social status , number_in_family = $NumberInFamily ,
-             addresss = $Address , phone_no = $PhoneNumber , home_no = $HomeNumber , supervised_by = $SupervisedBy , patient_complain = $PatientComplain , complain = $Complain";
+             addresss = $Address , Mobile_no = $MobileNumber , home_no = $HomeNumber , supervised_by = $SupervisedBy , patient_complain = $PatientComplain , complain = $Complain";
             $do = mysqli_query($con,$sql);
         }
         else
@@ -87,7 +87,7 @@ class patient
         }
         $con->close();
     }
-    function Insert($NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
+    function Insert($NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$MobileNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
     {
         $con = mysqli_connect("localhost","root","","project");
         if(!$con)
@@ -97,12 +97,12 @@ class patient
         else
         {
             $sql = "SELECT * FROM reg_patients WHERE namee = '$NAME' , gender = '$Gender' , age = '$Age' , job = '$Job' , Social_status = '$Social status' , number_in_family = '$NumberInFamily' ,
-             addresss = '$Address' , phone_no = '$PhoneNumber' , home_no = '$HomeNumber' , supervised_by = '$SupervisedBy' , patient_complain = '$PatientComplain' , complain = '$Complain'";
+             addresss = '$Address' , Mobile_no = '$MobileNumber' , home_no = '$HomeNumber' , supervised_by = '$SupervisedBy' , patient_complain = '$PatientComplain' , complain = '$Complain'";
             $do = mysqli_query($con,$sql);
             $search = mysqli_num_rows($row);
             if($search == 0)
             {
-                $sql = "INSERT INTO reg_patients (namee,gender,age,job,Social_status,number_in_family,addresss,phone_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')";
+                $sql = "INSERT INTO reg_patients (namee,gender,age,job,Social_status,number_in_family,addresss,Mobile_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')";
             }
         }
         $con->close();
