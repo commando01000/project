@@ -16,8 +16,8 @@
         $SupervisedBy = trim($_POST["Servant name"]);
         $PatientComplain = trim($_POST["patient Complaint"]);
         $Complain = trim($_POST["Complaints of family and companions"]);
-        $UpdateAdmin = new admin();
-        $UpdateAdmin->Update($name , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $MobileNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain );
+        $UpdatePatient = new admin();
+        $UpdatePatient->Update($name , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $MobileNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain );
         header('Location:afterlogin.php');
     }
 ?>
