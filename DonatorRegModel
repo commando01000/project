@@ -1,0 +1,167 @@
+<?php
+class item
+{
+    public $id;
+    public $namee;
+    function __construct()
+    {
+        
+    }  
+    function convert_item($id)
+    {
+        if(!$id == "")
+        {
+            $con = mysqli_connect("localhost","root","","project");
+            if(!$con)
+            {
+                die('Could not connect:' . mysqli_error());
+            }
+            $sql="SELECT * FROM donation_items WHERE id = $id";
+            $UserDataSet = mysqli_query($con,$sql);
+            if($row = mysqli_fetch_array($UserDataSet))
+            {
+                $this->na;
+            }me = $row["namee"];
+                $this->id = $id
+        }
+    }
+    function delete($id)
+     {
+         $con = mysqli_connect("localhost", "root", "", "project");
+         $sql = "SELECT * from donation_items where id = '$id'";
+         $row = mysqli_query($con,$sql);
+         $num = mysqli_num_rows($row);
+         if($num == 1)
+         { 
+             $sql = "DELETE FROM donation_items WHERE  id = '$id'";
+             $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+         }
+         else
+         {
+             echo "user not found !";
+         }
+     }
+      function update($id,$name,$phone_no,$address,$item)
+     {
+         $con = mysqli_connect("localhost", "root", "", "project");
+         $sql = "SELECT * from donation_items where id='$id'";
+         $row = mysqli_query($con,$sql);
+         $num = mysqli_num_rows($row);
+         if($num == 1)
+         {
+             $go = mysqli_query($con,$sql) or die (mysqli_error($con));  
+             $sql2 = "UPDATE donation_items SET namee ='$namee'  WHERE id ='$id'";
+             $go = mysqli_query($con,$sql2) or die (mysqli_error($con));
+         }
+         else
+         {
+             echo "user not found !";
+         }
+     }
+}
+ class Donator
+ {
+     public $id;
+     public $namee;
+     public $phone_no;
+     public $address;
+     public $item;
+     function __construct()
+     {
+         
+     }
+     function Convert_Donator($id)
+     {
+         if(!$id == "")
+         {
+             $con = mysqli_connect("localhost","root","","project");
+             if(!$con)
+             {
+                 die('Could not connect:' . mysqli_error());
+             }
+             $sql="SELECT * FROM donator WHERE id = $id";
+             $UserDataSet = mysqli_query($con,$sql);
+             if($row = mysqli_fetch_array($UserDataSet))
+             {
+                 $this->name=$row["namee"];
+                 $this->id = $id;
+                 $this->phone_no=$row["phone_no"];
+                 $this->address =$row["address"];
+                 $this->item = new item($row["item"]);
+             }
+         }
+     }
+     function delete($id)
+     {
+         $con = mysqli_connect("localhost", "root", "", "project");
+         $sql = "SELECT * from donator where id = '$id'";
+         $row = mysqli_query($con,$sql);
+         $num = mysqli_num_rows($row);
+         if($num == 1)
+         { 
+             $sql = "DELETE FROM donator WHERE  id = '$id'";
+             $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+         }
+         else
+         {
+             echo "user not found !";
+         }
+     }
+      function update($id,$name,$phone_no,$address,$item)
+     {
+         $con = mysqli_connect("localhost", "root", "", "project");
+         $sql = "SELECT * from donator where id='$id'";
+         $row = mysqli_query($con,$sql);
+         $num = mysqli_num_rows($row);
+         if($num == 1)
+         {
+             $go = mysqli_query($con,$sql) or die (mysqli_error($con));  
+             $sql2 = "UPDATE donator SET namee ='$namee' , phone_no = '$phone_no' , addresss = '$addresss' , item = '$item' WHERE id ='$id'";
+             $go = mysqli_query($con,$sql2) or die (mysqli_error($con));
+         }
+         else
+         {
+             echo "user not found !";
+         }
+     }
+     function insert($name,$username,$password,$type)
+     {
+         $con = mysqli_connect("localhost","root","","project");
+         if(!$con)
+         {
+             die('Could not connect:' . mysqli_error());
+         }
+         else
+         {
+             $sql = "SELECT * FROM donator WHERE namee = '$name' or username = '$username' or passwordd = '$password'";
+             $row = mysqli_query($con,$sql);
+             $num = mysqli_num_rows($row);
+             if($num == 0)
+             {
+                 if($type == "computer")
+                 {
+                     $sql = "INSERT INTO donator(namee,phone_no,addresss,item) VALUES('$namee','$phone_no','$addresss',1)";
+                 }
+                 if($type == "money")
+                 {
+                     $sql = "INSERT INTO donator(namee,phone_no,addresss,item) VALUES('$namee','$phone_no','$addresss',2)";
+                 }
+                 if($type == "blankets")
+                 {
+                     $sql = "INSERT INTO donator(namee,phone_no,addresss,item) VALUES('$namee','$phone_no','$addresss',3)";
+                 }
+                 if($type == "mobile")
+                 {
+                     $sql = "INSERT INTO donator(namee,phone_no,addresss,item) VALUES('$namee','$phone_no','$addresss',4)";
+                 }
+             }
+             else
+             {
+                 echo "user already exists ! ";
+             }
+             mysqli_query($con,$sql) or die(mysql_error());
+             echo "Registered Successfully ! ";
+         }
+    }
+ }
+?>
