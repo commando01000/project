@@ -1,6 +1,5 @@
 <?php
     include_once 'Patient Model.php';
-    include_once 'Patient View.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $name = $Gender = $Age = $Job = $Socialstatus = $NumberInFamily = $Address = $MobileNumber = $HomeNumber = $SupervisedBy = $PatientComplain = $Complain = "";
