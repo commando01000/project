@@ -39,7 +39,7 @@ class patient
                     $this->Gender = $row["gender"];
                     $this->Age = $row["age"];
                     $this->Job = $row["job"];
-                    $this->Social status = $row["marital_status"];
+                    $this->Social status = $row["Social_status"];
                     $this->NumberInFamily = $row["number_in_family"];
                     $this->Address = $row["addresss"];
                     $this->PhoneNumber = $row["phone_no"];
@@ -77,7 +77,7 @@ class patient
         $search = mysqli_num_rows($row);
         if($search == 1)
         {
-            $sql = "UPDATE reg_patients SET namee = $NAME , gender = $Gender , age = $Age , job = $Job , marital_status = $Social status , number_in_family = $NumberInFamily ,
+            $sql = "UPDATE reg_patients SET namee = $NAME , gender = $Gender , age = $Age , job = $Job , Social_status = $Social status , number_in_family = $NumberInFamily ,
              addresss = $Address , phone_no = $PhoneNumber , home_no = $HomeNumber , supervised_by = $SupervisedBy , patient_complain = $PatientComplain , complain = $Complain";
             $do = mysqli_query($con,$sql);
         }
@@ -96,13 +96,13 @@ class patient
         }
         else
         {
-            $sql = "SELECT * FROM reg_patients WHERE namee = '$NAME' , gender = '$Gender' , age = '$Age' , job = '$Job' , marital_status = '$Social status' , number_in_family = '$NumberInFamily' ,
+            $sql = "SELECT * FROM reg_patients WHERE namee = '$NAME' , gender = '$Gender' , age = '$Age' , job = '$Job' , Social_status = '$Social status' , number_in_family = '$NumberInFamily' ,
              addresss = '$Address' , phone_no = '$PhoneNumber' , home_no = '$HomeNumber' , supervised_by = '$SupervisedBy' , patient_complain = '$PatientComplain' , complain = '$Complain'";
             $do = mysqli_query($con,$sql);
             $search = mysqli_num_rows($row);
             if($search == 0)
             {
-                $sql = "INSERT INTO reg_patients (namee,gender,age,job,marital_status,number_in_family,addresss,phone_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')";
+                $sql = "INSERT INTO reg_patients (namee,gender,age,job,Social_status,number_in_family,addresss,phone_no,home_no,supervised_by,patient_complain,comlain) VALUES('$Name','$Gender','$Age','$Job','$MaritalStatus','$NumberInFamily','$Address','$PhoneNumber','$HomeNumber','$SupervisedBy','$PatientComplain','$Complain')";
             }
         }
         $con->close();
