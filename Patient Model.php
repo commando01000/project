@@ -7,7 +7,7 @@ class patient
     public $Gender;
     public $Age;
     public $Job;
-    public $MaritalStatus;
+    public $Social status;
     public $NumberInFamily;
     public $Address;
     public $PhoneNumber;
@@ -39,7 +39,7 @@ class patient
                     $this->Gender = $row["gender"];
                     $this->Age = $row["age"];
                     $this->Job = $row["job"];
-                    $this->MaritalStatus = $row["marital_status"];
+                    $this->Social status = $row["marital_status"];
                     $this->NumberInFamily = $row["number_in_family"];
                     $this->Address = $row["addresss"];
                     $this->PhoneNumber = $row["phone_no"];
@@ -69,7 +69,7 @@ class patient
         }
         $con->close();
     }
-    function Update($ID,$NAME,$Gender,$Age,$Job,$MaritalStatus,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
+    function Update($ID,$NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
     {
         $con = mysqli_connect("localhost","root","","project");
         $sql = "SELECT * FROM reg_patients WHERE id = $Id";
@@ -87,7 +87,7 @@ class patient
         }
         $con->close();
     }
-    function Insert($NAME,$Gender,$Age,$Job,$MaritalStatus,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
+    function Insert($NAME,$Gender,$Age,$Job,$Social status,$NumberInFamily,$Address,$PhoneNumber,$HomeNumber,$SupervisedBy,$PatientComplain,$Complain)
     {
         $con = mysqli_connect("localhost","root","","project");
         if(!$con)
@@ -96,7 +96,7 @@ class patient
         }
         else
         {
-            $sql = "SELECT * FROM reg_patients WHERE namee = '$NAME' , gender = '$Gender' , age = '$Age' , job = '$Job' , marital_status = '$MaritalStatus' , number_in_family = '$NumberInFamily' ,
+            $sql = "SELECT * FROM reg_patients WHERE namee = '$NAME' , gender = '$Gender' , age = '$Age' , job = '$Job' , marital_status = '$Social status' , number_in_family = '$NumberInFamily' ,
              addresss = '$Address' , phone_no = '$PhoneNumber' , home_no = '$HomeNumber' , supervised_by = '$SupervisedBy' , patient_complain = '$PatientComplain' , complain = '$Complain'";
             $do = mysqli_query($con,$sql);
             $search = mysqli_num_rows($row);
