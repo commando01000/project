@@ -39,12 +39,9 @@
   <br><br>
   mobile number: <input type="number" placeholder="Enter mobile number"name="mobile number" required>
   <br><br>
-  Servant name: <input type="text" placeholder="Enter Servant name" name="Servant name"required>
-  <br><br>
-  Servant number: <input type="number" placeholder="Enter Servant number"name="Servant number" required>
+   Supervised by: <input type="text" placeholder="Enter Supervised by"name="Supervised by" required>
   <br><br>
   patient Complaints: <textarea name="patient Complaint" placeholder="Enter patient Complaint" rows="5" cols="40"required></textarea>
-
   <br><br>
   Complaints of family and companions: <textarea name="Complaints of family and companions" placeholder="Enter Complaints of family and companions" rows="5" cols="40"required></textarea>
   <br><br>
