@@ -2,21 +2,21 @@
     include_once 'Patient Model.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $name = $Gender = $Age = $Job = $Maritalstatus = $NumberInFamily = $Address = $MobileNumber = $HomeNumber = $SupervisedBy = $PatientComplain = $Complain = "";
-        $name = trim($_POST["Name"]);
+        $NAME = $Gender = $Age = $Job = $Maritalstatus = $NumberInFamily = $Address = $PhoneNunber = $HomeNumber = $SupervisedBy = $PatientComplain = $Complain = "";
+        $NAME = trim($_POST["namee"]);
         $Gender = trim($_POST["gender"]);
-        $Age = trim($_POST["age of patient"]);
-        $Job = trim($_POST["patient job"]);
-        $Maritalstatus = trim($_POST["Enter Social status"]);
-        $NumberInFamily = trim($_POST["rank"]);
-        $Address = trim($_POST["Adress"]);
-        $MobileNumber = trim($_POST["mobile no."]);
-        $HomeNumber = trim($_POST["Home no."]);
-        $SupervisedBy = trim($_POST["Servant name"]);
-        $PatientComplain = trim($_POST["patient Complaint"]);
-        $Complain = trim($_POST["Complaints of family and companions"]);
+        $Age = trim($_POST["age"]);
+        $Job = trim($_POST["job"]);
+        $Maritalstatus = trim($_POST["marital_status"]);
+        $NumberInFamily = trim($_POST["number_in_family"]);
+        $Address = trim($_POST["adresss"]);
+        $PhoneNumber = trim($_POST["phone_no"]);
+        $HomeNumber = trim($_POST["home_no"]);
+        $SupervisedBy = trim($_POST["supervisd_by"]);
+        $PatientComplain = trim($_POST["patient_complain"]);
+        $Complain = trim($_POST["complain"]);
         $UpdatePatient = new patient();
-        $UpdatePatient->Update($name , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $MobileNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain );
-        header('Location:afterlogin.php');
+        $UpdatePatient->Update($NAME , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $PhoneNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain);
+        header("Location:afterlogin.php");
     }
 ?>
