@@ -31,7 +31,7 @@
   <br><br>
   Social status: <input type="text" name="Enter Social status" placeholder="Enter  Social status"required>
   <br><br>
-  Number in the family: <input type="text" placeholder="Enter Number in the family" required>
+  Number in the family: <input type="text" name="rank" placeholder="Enter Number in the family" required>
   <br><br>
   Adress: <input type="text" placeholder="Home Adress" name="Adress"required>
   <br><br>
