@@ -14,11 +14,11 @@
   </ul>
 <form method="post" action="PQ">
 <div class="container">
-<h1>Make profile for patient</h1>
+<h1>Update profile for patient</h1>
 <hr>
   New Name of patient: <input type="text" placeholder="Enter Name of patient" name="name of patient"required>
   <br><br>
-  New Gender:
+  Gender:
   <input type="radio" name="gender" value="Female">Female
   <input type="radio" name="gender" value="Male">Male
   <br><br>
