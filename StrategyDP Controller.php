@@ -11,17 +11,17 @@
         if($typeofpay== "cash")
         {
             $pay1 = new donator(new Pay_With_Cash());
-            $pay1->Pay($id,$donator_id,$amount,$money);
+            $pay1->executeStrategy($id,$donator_id,$amt,$type);
         }
         if($typeofpay== "visa")
         {
             $pay1 = new donator(new Pay_With_Visa());
-            $pay1->Pay($id,$donator_id,$amount,$money);
+            $pay1->executeStrategy($id,$donator_id,$amt,$type);
         }
         if($typeofpay== "fawry")
         {
             $pay1 = new donator(new Pay_With_Fawry());
-            $pay1->Pay($id,$donator_id,$amount,$money);
+            $pay1->executeStrategy($id,$donator_id,$amt,$type);
         }
        
     }
