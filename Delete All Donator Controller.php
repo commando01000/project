@@ -3,10 +3,10 @@
     include_once 'Donator View.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $id = "";
-        $id = trim($_POST["id"]);
+        $donid = "";
+        $donid = trim($_POST["donid"]);
         $DeleteAllDonator = new donator();
-        $DeleteAllDonator->DeleteAll($id);
+        $DeleteAllDonator->DeleteAll($donid);
         header('Location:afterlogin.php');
     }
 ?>
