@@ -3,13 +3,9 @@ class item
 {
     public $id;
     public $namee;
-    function __construct()
+    function __construct($id)
     {
-        
-    }  
-    function convert_item($id)
-    {
-        if(!$id == "")
+         if(!$id == -1)
         {
             $con = mysqli_connect("localhost","root","","project");
             if(!$con)
@@ -20,12 +16,12 @@ class item
             $UserDataSet = mysqli_query($con,$sql);
             if($row = mysqli_fetch_array($UserDataSet))
             {
-                $this->name = $id;
                 $this->id = $id;
+                $this->namee = $name;
             }
 
         }
-    }
+    }  
     function delete($id)
      {
          $con = mysqli_connect("localhost", "root", "", "project");
@@ -67,13 +63,9 @@ class item
      public $phone_no;
      public $address;
      public $item;
-     function __construct()
+     function __construct($id)
      {
-         
-     }
-     function Convert_Donator($id)
-     {
-         if(!$id == "")
+          if(!$id == -1)
          {
              $con = mysqli_connect("localhost","root","","project");
              if(!$con)
