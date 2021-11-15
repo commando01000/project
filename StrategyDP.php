@@ -6,9 +6,9 @@
         {
             $this->IPay = $IPay;
         }
-        public function executeStrategy($x)
+        public function executeStrategy($id,$donator_id,$amt,$type)
         {
-            return $this->IPay->Pay($x);
+            return $this->IPay->Pay($id,$donator_id,$amt,$type);
         }
     }
     public class Pay_With_Fawry implements IPay
@@ -17,101 +17,98 @@
         {
             
         }
-        function delete_donation($id)
-        {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
-            }
-            else
-            {
-                echo "user not found !";
-            }
-        }
-        function delete_all_donations($id)
-        {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
-            }
-            else
-            {
-                echo "user not found !";
-            }
-        }
         public function Pay($id,$donator_id,$amt,$type)
-            {     
-            
-                    $con = mysqli_connect("localhost","root","","project");
-                    if(!$con)
-                    {
-                        die('Could not connect:' . mysqli_error());
-                    }
-                    else
-                    {
-                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
-                        $row = mysqli_query($con,$sql);
-                        $num = mysqli_num_rows($row);
-                        if($num == 0)
-                        {
-                            if($type == "computer")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                            }
-                            if($type == "money")
-                            {
-                                
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,0,'$amt')";
-                            }
-                            if($type == "blankets")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
-                            }
-                            if($type == "mobile")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
-                            }
-                        }
-                        else
-                        {
-                            echo "user already exists ! ";
-                        }
-                        mysqli_query($con,$sql) or die(mysql_error());
-                        echo "Registered Successfully ! ";
-                    }
-            }
-        }
-        function update_donation($id)
-        {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+        {     
+            $con = mysqli_connect("localhost","root","","project");
+            if(!$con)
+            {
+                die('Could not connect:' . mysqli_error());
             }
             else
             {
-                echo "user not found !";
+                $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 0)
+                {
+                    if($type == "computer")
+                    {
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                    }
+                    if($type == "money")
+                    {
+                        
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                       
+                        $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,0,'$amt')";
+                        
+                        
+                    }
+                    if($type == "blankets")
+                    {
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                    }
+                    if($type == "mobile")
+                    {
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                    }
+                }
+                else
+                {
+                    echo "user already exists ! ";
+                }
+                mysqli_query($con,$sql) or die(mysql_error());
+                echo "Registered Successfully ! ";
             }
         }
-        public function Pay($x) 
-        {
-            
-        }
+            function delete_donation($id)
+            {
+                $con = mysqli_connect("localhost", "root", "", "project");
+                $sql = "SELECT * from donation_items where id = '$id'";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 1)
+                { 
+                    $sql = "DELETE FROM donation_items WHERE  id = '$id'";
+                    $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+                }
+                else
+                {
+                    echo "user not found !";
+                }
+            }
+            function delete_all_donations($id)
+            {
+                $con = mysqli_connect("localhost", "root", "", "project");
+                $sql = "SELECT * from donation_items where id = '$id'";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 1)
+                { 
+                    $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
+                    $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+                }
+                else
+                {
+                    echo "user not found !";
+                }
+            }
+            function update_donation($id,$amt)
+            {
+                $con = mysqli_connect("localhost", "root", "", "project");
+                $sql = "SELECT * from donation_items where id = '$id'";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 1)
+                { 
+                    $sql = "UPDATE INTO donation_details SET amount = '$amt' WHERE id = '$donator_id'";
+                    $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+                }
+                else
+                {
+                    echo "user not found !";
+                }
+            }
     }
     public class Pay_With_Cash implements IPay
     {
@@ -119,82 +116,52 @@
         {
             
         }
-        function delete_donation($id)
+        public function Pay($id,$donator_id,$amt,$type) 
         {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
-            }
-            else
-            {
-                echo "user not found !";
-            }
-        }
-        function delete_all_donations($id)
-        {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
-            }
-            else
-            {
-                echo "user not found !";
-            }
-        }
-        public function Pay($id,$donator_id,$amt,$type)
+            public function Pay($id,$donator_id,$amt,$type)
             {     
             
-                    $con = mysqli_connect("localhost","root","","project");
-                    if(!$con)
+                $con = mysqli_connect("localhost","root","","project");
+                if(!$con)
+                {
+                    die('Could not connect:' . mysqli_error());
+                }
+                else
+                {
+                    $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                    $row = mysqli_query($con,$sql);
+                    $num = mysqli_num_rows($row);
+                    if($num == 0)
                     {
-                        die('Could not connect:' . mysqli_error());
+                        if($type == "computer")
+                        {
+                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        }
+                        if($type == "money")
+                        {
+                            
+                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,'$amt',0)";
+                        }
+                        if($type == "blankets")
+                        {
+                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                        }
+                        if($type == "mobile")
+                        {
+                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                        }
                     }
                     else
                     {
-                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
-                        $row = mysqli_query($con,$sql);
-                        $num = mysqli_num_rows($row);
-                        if($num == 0)
-                        {
-                            if($type == "computer")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                            }
-                            if($type == "money")
-                            {
-                                
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,'$amt',0)";
-                            }
-                            if($type == "blankets")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
-                            }
-                            if($type == "mobile")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
-                            }
-                        }
-                        else
-                        {
-                            echo "user already exists ! ";
-                        }
-                        mysqli_query($con,$sql) or die(mysql_error());
-                        echo "Registered Successfully ! ";
+                        echo "user already exists ! ";
                     }
+                    mysqli_query($con,$sql) or die(mysql_error());
+                    echo "Registered Successfully ! ";
+                }
             }
         }
-        function update_donation($id)
+        function update_donation($id,$amt)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
             $sql = "SELECT * from donation_items where id = '$id'";
@@ -202,17 +169,13 @@
             $num = mysqli_num_rows($row);
             if($num == 1)
             { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
+                $sql = "UPDATE INTO donation_details SET amount = '$amt' WHERE id = '$donator_id'";
                 $go = mysqli_query($con,$sql) or die (mysqli_error($con));
             }
             else
             {
                 echo "user not found !";
             }
-        }
-        public function Pay($x) 
-        {
-            
         }
     }
     public class Pay_With_Visa implements IPay
@@ -221,82 +184,49 @@
         {
             
         }
-        function delete_donation($id)
+        public function Pay($id,$donator_id,$amt,$type) 
         {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
+           
+            $con = mysqli_connect("localhost","root","","project");
+            if(!$con)
+            {
+                die('Could not connect:' . mysqli_error());
             }
             else
             {
-                echo "user not found !";
-            }
-        }
-        function delete_all_donations($id)
-        {
-            $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
-            $row = mysqli_query($con,$sql);
-            $num = mysqli_num_rows($row);
-            if($num == 1)
-            { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
-                $go = mysqli_query($con,$sql) or die (mysqli_error($con));
-            }
-            else
-            {
-                echo "user not found !";
-            }
-        }
-        public function Pay($id,$donator_id,$amt,$type)
-            {     
-            
-                    $con = mysqli_connect("localhost","root","","project");
-                    if(!$con)
+                $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                $row = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($row);
+                if($num == 0)
+                {
+                    if($type == "computer")
                     {
-                        die('Could not connect:' . mysqli_error());
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                     }
-                    else
+                    if($type == "money")
                     {
-                        $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
-                        $row = mysqli_query($con,$sql);
-                        $num = mysqli_num_rows($row);
-                        if($num == 0)
-                        {
-                            if($type == "computer")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                            }
-                            if($type == "money")
-                            {
-                                
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
-                            }
-                            if($type == "blankets")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
-                            }
-                            if($type == "mobile")
-                            {
-                                $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
-                            }
-                        }
-                        else
-                        {
-                            echo "user already exists ! ";
-                        }
-                        mysqli_query($con,$sql) or die(mysql_error());
-                        echo "Registered Successfully ! ";
+                        
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
                     }
+                    if($type == "blankets")
+                    {
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                    }
+                    if($type == "mobile")
+                    {
+                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                    }
+                }
+                else
+                {
+                    echo "user already exists ! ";
+                }
+                mysqli_query($con,$sql) or die(mysql_error());
+                echo "Registered Successfully ! ";
             }
         }
-        function update_donation($id)
+        function update_donation($id,$amt)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
             $sql = "SELECT * from donation_items where id = '$id'";
@@ -304,21 +234,17 @@
             $num = mysqli_num_rows($row);
             if($num == 1)
             { 
-                $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
+                $sql = "UPDATE INTO donation_details SET amount = '$amt' WHERE id = '$donator_id'";
                 $go = mysqli_query($con,$sql) or die (mysqli_error($con));
             }
             else
             {
                 echo "user not found !";
             }
-        }
-        public function Pay($x) 
-        {
-            
         }
     }
     public interface IPay
     {
-        public function Pay($x);
+        public function Pay($id,$donator_id,$amt,$type);
     }
 ?>
