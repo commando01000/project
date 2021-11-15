@@ -4,7 +4,7 @@
     {
         $id = "";
         $id = trim($_POST["Name"]);
-        $DeletePatient = new patient();
+        $DeletePatient = new patient(-1);
         $DeletePatient->Delete($id);
         header('Location:afterlogin.php');
     }
