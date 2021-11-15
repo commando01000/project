@@ -72,18 +72,7 @@
                             {
                                 
                                 $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                if($type2 == "visa")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
-                                }
-                                if($type2 == "cash")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
-                                }
-                                if($type2 == "fawry")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
-                                }
+                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,0,'$amt')";
                             }
                             if($type == "blankets")
                             {
@@ -185,18 +174,7 @@
                             {
                                 
                                 $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                if($type2 == "visa")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
-                                }
-                                if($type2 == "cash")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
-                                }
-                                if($type2 == "fawry")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
-                                }
+                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,'$amt',0)";
                             }
                             if($type == "blankets")
                             {
@@ -298,18 +276,7 @@
                             {
                                 
                                 $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
-                                if($type2 == "visa")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
-                                }
-                                if($type2 == "cash")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,'$amt',0)";
-                                }
-                                if($type2 == "fawry")
-                                {
-                                    $sql = "INSERT INTO donation_item_details(donator_id,amount,item) VALUES('$donator_id',0,0,'$amt')";
-                                }
+                                $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
                             }
                             if($type == "blankets")
                             {
