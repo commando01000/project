@@ -15,7 +15,7 @@
         $SupervisedBy = trim($_POST["Supervised by"]);
         $PatientComplain = trim($_POST["patient Complaint"]);
         $Complain = trim($_POST["Complaints of family and companions"]);
-        $UpdatePatient = new patient();
+        $UpdatePatient = new patient(-1);
         $UpdatePatient->Update($NAME , $Gender , $Age , $Job , $MaritalStatus , $NumberInFamily , $Address , $PhoneNumber , $HomeNumber , $SupervisedBy , $PatientComplain , $Complain);
         header("Location:afterlogin.php");
     }
