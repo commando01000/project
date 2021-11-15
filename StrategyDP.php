@@ -33,12 +33,12 @@
                 {
                     if($type == "computer")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                     }
                     if($type == "money")
                     {
                         
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                        
                         $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,0,'$amt')";
                         
@@ -46,11 +46,11 @@
                     }
                     if($type == "blankets")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
                     }
                     if($type == "mobile")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
                     }
                 }
                 else
@@ -64,12 +64,12 @@
             function delete_donation($id)
             {
                 $con = mysqli_connect("localhost", "root", "", "project");
-                $sql = "SELECT * from donation_items where id = '$id'";
+                $sql = "SELECT * from donation_details where id = '$id'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 1)
                 { 
-                    $sql = "DELETE FROM donation_items WHERE  id = '$id'";
+                    $sql = "DELETE FROM donation_details WHERE  id = '$id'";
                     $go = mysqli_query($con,$sql) or die (mysqli_error($con));
                 }
                 else
@@ -77,15 +77,15 @@
                     echo "user not found !";
                 }
             }
-            function delete_all_donations($id)
+            function delete_all_donations($donid)
             {
                 $con = mysqli_connect("localhost", "root", "", "project");
-                $sql = "SELECT * from donation_items where id = '$id'";
+                $sql = "SELECT * from donation_details where id = '$id'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 1)
                 { 
-                    $sql = "DELETE FROM donation_items WHERE  id = '$donator_id'";
+                    $sql = "DELETE FROM donation_details WHERE  id = '$donator_id'";
                     $go = mysqli_query($con,$sql) or die (mysqli_error($con));
                 }
                 else
@@ -96,7 +96,7 @@
             function update_donation($id,$amt)
             {
                 $con = mysqli_connect("localhost", "root", "", "project");
-                $sql = "SELECT * from donation_items where id = '$id'";
+                $sql = "SELECT * from donation_details where id = '$id'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 1)
@@ -117,10 +117,7 @@
             
         }
         public function Pay($id,$donator_id,$amt,$type) 
-        {
-            public function Pay($id,$donator_id,$amt,$type)
-            {     
-            
+        {   
                 $con = mysqli_connect("localhost","root","","project");
                 if(!$con)
                 {
@@ -128,28 +125,28 @@
                 }
                 else
                 {
-                    $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                    $sql = "SELECT * FROM donation_details WHERE donator_id = '$donator_id' or amount = '$amt'";
                     $row = mysqli_query($con,$sql);
                     $num = mysqli_num_rows($row);
                     if($num == 0)
                     {
                         if($type == "computer")
                         {
-                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                         }
                         if($type == "money")
                         {
                             
-                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                            $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                             $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id',0,'$amt',0)";
                         }
                         if($type == "blankets")
                         {
-                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                            $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
                         }
                         if($type == "mobile")
                         {
-                            $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                            $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
                         }
                     }
                     else
@@ -164,7 +161,7 @@
         function update_donation($id,$amt)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
+            $sql = "SELECT * from donation_details where id = '$id'";
             $row = mysqli_query($con,$sql);
             $num = mysqli_num_rows($row);
             if($num == 1)
@@ -186,7 +183,6 @@
         }
         public function Pay($id,$donator_id,$amt,$type) 
         {
-           
             $con = mysqli_connect("localhost","root","","project");
             if(!$con)
             {
@@ -194,28 +190,28 @@
             }
             else
             {
-                $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                $sql = "SELECT * FROM donation_details WHERE donator_id = '$donator_id' or amount = '$amt'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 0)
                 {
                     if($type == "computer")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                     }
                     if($type == "money")
                     {
                         
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',1)";
                         $sql = "INSERT INTO donation_item_details(donator_id,visa,cash,fawry) VALUES('$donator_id','$amt',0,0)";
                     }
                     if($type == "blankets")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',3)";
                     }
                     if($type == "mobile")
                     {
-                        $sql = "INSERT INTO donation_items(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
+                        $sql = "INSERT INTO donation_details(donator_id,amount,item) VALUES('$donator_id','$amt',4)";
                     }
                 }
                 else
@@ -229,7 +225,7 @@
         function update_donation($id,$amt)
         {
             $con = mysqli_connect("localhost", "root", "", "project");
-            $sql = "SELECT * from donation_items where id = '$id'";
+            $sql = "SELECT * from donation_details where id = '$id'";
             $row = mysqli_query($con,$sql);
             $num = mysqli_num_rows($row);
             if($num == 1)
