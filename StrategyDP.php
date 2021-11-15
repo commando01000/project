@@ -80,7 +80,7 @@
             function delete_all_donations($donid)
             {
                 $con = mysqli_connect("localhost", "root", "", "project");
-                $sql = "SELECT * from donation_details where id = '$id'";
+                $sql = "SELECT * from donation_details where id = '$donid'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 1)
