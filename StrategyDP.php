@@ -4,7 +4,10 @@
         public $IPay;
         function __construct($IPay)
         {
-            $this->IPay = $IPay;
+            if(!$IPay == 0)
+            {
+                $this->IPay = $IPay;
+            }
         }
         public function executeStrategy($id,$donator_id,$amt,$type)
         {
