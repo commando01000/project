@@ -29,7 +29,7 @@
             }
             else
             {
-                $sql = "SELECT * FROM donation_items WHERE donator_id = '$donator_id' or amount = '$amt'";
+                $sql = "SELECT * FROM donator WHERE donator_id = '$donator_id'";
                 $row = mysqli_query($con,$sql);
                 $num = mysqli_num_rows($row);
                 if($num == 0)
