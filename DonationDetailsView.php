@@ -1,11 +1,9 @@
 <?php
 class DonationDetailsView
 {
-    public function ShowAdminDetails($DonationDetails)
+    public function ShowDonationDetails($DonationDetails)
     {
-        echo "name:".$DonationDetails->donator_id;
-        echo "amount".$DonationDetails->amount;
-        echo "username".$DonationDetails->item;
+        echo "name:".$DonationDetails->donator_id->name . "amount".$DonationDetails->amount . "item ".$DonationDetails->item;
     }
 }
 ?>
