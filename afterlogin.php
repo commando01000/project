@@ -24,13 +24,6 @@
   </div>
 </form>
 
-<form method="post" action="don.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Add Donator">  
-      <hr>
-      </div>
-</form>
   <form method="post" action="">
     <div class="container">
     <hr>
@@ -81,10 +74,24 @@
       <hr>
       </div>
 </form>
-  <form method="post" action="">
+  <form method="post" action="don.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Add Donator">  
+      <hr>
+      </div>
+</form>
+  <form method="post" action=""FrontEndDonatorView.php"">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="View Donator">  
+      <hr>
+      </div>
+</form>
+  <form method="post" action="Donator_ViewAll_Controller.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="View ALL Donator">  
       <hr>
       </div>
 </form>
