@@ -24,7 +24,7 @@
   </div>
 </form>
 
-  <form method="post" action="">
+  <form method="post" action="UpdateAdminForm.php">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="Update Admin">  
@@ -81,7 +81,7 @@
       <hr>
       </div>
 </form>
-  <form method="post" action=""FrontEndDonatorView.php"">
+  <form method="post" action="FrontEndDonatorView.php">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="View Donator">  
