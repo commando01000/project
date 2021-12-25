@@ -91,7 +91,7 @@
   <form method="post" action="Donator_ViewAll_Controller.php">
     <div class="container">
     <hr>
-      <input type="submit" class="registerbtn" name="submit" value="View ALL Donator">  
+      <input type="submit" class="registerbtn" name="submit" value="View ALL Donators">  
       <hr>
       </div>
 </form>
