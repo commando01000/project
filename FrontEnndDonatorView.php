@@ -12,11 +12,11 @@
   <li><a href="afterlogin">Choose your action</a></li>
   </ul>
 
-<form method="post" action = "DonationDetailsView.php">
+<form method="post" action = "Donator_View_Controller.php">
 <div class="container">
 <h1>Choose id </h1>
 <hr>
-<input type="text" placeholder="Enter Id" name="Submit"required>
+<input type="text" placeholder="Enter Id" name="id"required>
 <input type="submit" class="registerbtn" name="submit" value="Submit">   
 <hr>
 </div>
