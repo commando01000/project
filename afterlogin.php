@@ -23,12 +23,35 @@
   <hr>
   </div>
 </form>
+
+<form method="post" action="don.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Add Donator">  
+      <hr>
+      </div>
+</form>
+  <form method="post" action="">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Update Admin">  
+      <hr>
+      </div>
+</form>
+   <form method="post" action="Front End Patient Update Form.php">
+    <div class="container">
+    <hr>
+      <input type="submit" class="registerbtn" name="submit" value="Update Patient">  
+      <hr>
+      </div>
+</form>
+  
 <form method="post" action="FrontEndUserForm.php">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="Add a User">
       <hr>
-    </div>
+      </div>
 </form>
 <form method="post" action="userview.php">
     <div class="container">
@@ -44,34 +67,6 @@
       <hr>
       </div>
 </form>
-<form method="post" action="List_Items_Controller.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="List Items">
-      <hr>
-      </div>
-</form>
-<form method="post" action="don1.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Add Donator">  
-      <hr>
-      </div>
-</form>
-  <form method="post" action="UpdateAdminForm.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Update Admin">
-      <hr>
-      </div>
-</form>
-   <form method="post" action="Front End Patient Update Form.php">
-    <div class="container">
-    <hr>
-      <input type="submit" class="registerbtn" name="submit" value="Update Patient">
-      <hr>
-      </div>
-</form>
 <form method="post" action="Delete.php">
     <div class="container">
     <hr>
@@ -79,19 +74,19 @@
       <hr>
       </div>
 </form>
-  <form method="post" action="FrontEndAdminView.php">
+  <form method="post" action="Front End Admin View.php">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="View Admin">  
       <hr>
       </div>
 </form>
-  <form method="post" action="FrontEndDonatorView.php">
+  <form method="post" action="">
     <div class="container">
     <hr>
       <input type="submit" class="registerbtn" name="submit" value="View Donator">  
       <hr>
       </div>
 </form>
-</body><!-- Mahmoud -->
+</body><!-- Mortaga -->
 </html
