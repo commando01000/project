@@ -146,5 +146,21 @@ class Donation_Type
         }
         $con->close();
     }
+          public static function SelectAllDonatorsFromDB()
+    {
+        $sql="SELECT * FROM donator";
+        $con = mysqli_connect("localhost","root","","project 3");
+        $DonatorDataSet = mysqli_query($con,$sql);
+        $i = 0;
+        $Result;
+        while($row = mysqli_fetch_array($DonatorDataSet))
+        {
+            $MyObj = new donator($row["id"]);
+            $Result[$i] = $MyObj;
+            $i++;
+        }
+        $con->close();
+        return $Result;
+    }
 }
 ?>
