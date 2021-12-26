@@ -9,7 +9,7 @@
 /**
  * Description of FactoryDP
  *
- * @author Dell
+ * @author Mahmoud
  */
 include_once 'VISA.php';
 include_once 'BankTransfer.php';
@@ -18,34 +18,29 @@ include_once 'Fawry.php';
 include_once 'PayType.php';
 
 class FactoryDP {
-    
-    public function get_PayType($PayType)
+    function __construct()
     {
-        if($PayType == null)
-        {
-            return null;
-        }
-        if($PayType == 1)
-        {
-            return new VISA();
-        }
-         if($PayType == 2)
-        {
-            return new Fawry();
-        }
-        if($PayType == 3)
-        {
-            return new VodafoneCash();
-        }
-        if($PayType == 4)
-        {
-            return new BankTransfer();
-        }
-        if($PayType == 5)
-        {
-            return new MasterCard();
-        }
-     return null;
+        
     }
-    
+    public function getFawry(): Fawry
+    {
+        return new Fawry();
+    }
+    public function getVISA(): VISA
+    {
+        return new VISA();
+    }
+    public function getVodafoneCash(): VodafoneCash
+    {
+        return new VodafoneCash();
+    }
+    public function getBankTransfer(): BankTransfer
+    {
+        return new BankTransfer();
+    }
+    public function getMasterCard(): MasterCard
+    {
+        return new MasterCard();
+    }
 }
+?>
