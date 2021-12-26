@@ -15,7 +15,7 @@ include_once 'PayType.php';
         $ArrObj[0] = $Code;
         $ArrObj[1] = $AccountNumber;
         $ArrObj[2] = $id;
-        $Fawry = $CreateFactory->get_PayType(2);
+        $Fawry = $CreateFactory->getFawry();
         $Fawry->Pay($ArrObj);
     }
 ?>
