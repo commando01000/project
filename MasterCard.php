@@ -15,14 +15,7 @@ include_once 'PayType.php';
 class MasterCard implements PayType{
     public function Pay($ArrObj) {
         $con = mysqli_connect("localhost","root","","project 3");
-        if(!$con)
-        {
-            die('Could not connect:' . mysqli_error());
-        }
-        else
-        {
-           
-        }
+        
         $con->close();
     }
 }
