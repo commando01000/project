@@ -1,30 +1,100 @@
 <?php
-    class LoginCheck
+    include_once 'ExecQuery.php';
+    include_once 'Admin Model.php';
+    include_once 'ConcreteImp.php';
+    class ProxyDP implements ExecQuery
     {
         public $username;
         public $password;
-        function __construct($username,$password)
+        public $userTypeObj;
+        function __construct($username,$password,$type)
         {
-            $con = mysqli_connect("localhost","root","","project");
+            $con = mysqli_connect("localhost","root","","project 3");
             if(!$con)
             {
                 die('Could not connect:' . mysqli_error());
             }
             else
             {
-                $sql="SELECT * FROM admins WHERE username = '$username' AND passwordd = '$passwordd'";
-                $row = mysqli_query($con,$sql);
-                $num = mysqli_num_rows($row);
-                if($num == 1)
+                $sql="SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+                $UserDataSet = mysqli_query($con,$sql);
+                if($row = mysqli_fetch_array($UserDataSet))
                 {
-                    header('Location:afterlogin.php');
-                }
-                else
-                {
-                    echo "user not found !";
+                    $this->username = $row["username"];
+                    $this->password = $row["password"];
+                    if($type == "Head Of Servants")
+                    {
+                        $sql="SELECT * FROM user_type WHERE name = '$type'";
+                        $UserTypeSet = mysqli_query($con,$sql);
+                        if($roww = mysqli_fetch_array($UserTypeSet))
+                        {
+                            $this->userTypeObj = new usertype($roww["id"]);
+                        }
+                    }
+                    if($type == "Servant")
+                    {
+                        $sql="SELECT * FROM user_type WHERE name = '$type'";
+                        $UserTypeSet = mysqli_query($con,$sql);
+                        if($roww = mysqli_fetch_array($UserTypeSet))
+                        {
+                            $this->userTypeObj = new usertype($roww["id"]);
+                        }
+                    }
+                    if($type == "Supervisor")
+                    {
+                        $sql="SELECT * FROM user_type WHERE name = '$type'";
+                        $UserTypeSet = mysqli_query($con,$sql);
+                        if($roww = mysqli_fetch_array($UserTypeSet))
+                        {
+                            $this->userTypeObj = new usertype($roww["id"]);
+                        }
+                    }
+                    $num = mysqli_num_rows($UserDataSet);
+                    if($num == 1)
+                    {
+                        if($type == "Head of Servants")
+                        {
+                            header('Location:afterlogin.php');
+                        }
+                        else if($type == "Supervisor")
+                        {
+                            // will lead to a different after login page
+                        }
+                        else if($type == "Servant")
+                        {
+                            // will lead to a different after login page
+                        }
+                    }
+                    else
+                    {
+                        echo "user not found !";
+                    }
                 }
             }
+            $con->close();
+    }
+
+    public function executeQuery($Query) {
+        if($this->userTypeObj->name == "Head Of Servants")
+        {
+            $admin = new ConcreteImp();
+            $admin->executeQuery();
+        }
+        if($this->userTypeObj->name == "Supervisor")
+        {
+            $admin = new ConcreteImp();
+            $admin->executeQuery();
+        }
+        if($this->userTypeObj->name == "Servant")
+        {
+            $admin = new ConcreteImp();
+            $admin->executeQuery();
         }
     }
-    //Mortaga
+}
+//$x = new ProxyDP("gogo", 12333, "Supervisor");
+//echo $x->username . "<br>";
+//echo $x->password . "<br>";
+//echo $x->userTypeObj->name . "<br>";
+// Working !!!
 ?>
