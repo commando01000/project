@@ -5,8 +5,8 @@
         $username = $password = $type = "";
         $username = trim($_POST["username"]);
         $password = trim($_POST["password"]);
-        $type = trim($_POST["type"]);
-        $Login = new LoginCheck($username,$password,$type);
+        $type = trim($_POST["job"]);
+        $Login = new ProxyDP($username,$password,$type);
         header("Location: afterlogin.php");
     }
 ?>
