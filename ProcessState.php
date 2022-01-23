@@ -12,7 +12,7 @@
  * @author Dell
  */
 include_once 'State.php';
-class ProcessState {
+class ProcessState implements State{
         
     public function proccesse($Do) {
         $Do->setState(new ProcessState());
