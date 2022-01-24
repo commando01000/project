@@ -1,13 +1,16 @@
 <?php
     include_once 'ExecQuery.php';
-    include_once 'Admin Model.php';
     include_once 'ConcreteImp.php';
+    include_once 'usertype_pages.php';
+    include_once 'error_messages.php';
+    include_once 'error_message_details.php';
+    include_once 'Admin Model.php';
     class ProxyDP implements ExecQuery
     {
         public $username;
         public $password;
         public $userTypeObj;
-        function __construct($username,$password,$type)
+        function __construct($username,$password,$type,$language)
         {
             $con = mysqli_connect("localhost","root","","project 3");
             if(!$con)
@@ -17,84 +20,113 @@
             else
             {
                 $sql="SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
-                $UserDataSet = mysqli_query($con,$sql);
-                if($row = mysqli_fetch_array($UserDataSet))
+                $AdminDataSet = mysqli_query($con,$sql);
+                $num = mysqli_num_rows($AdminDataSet);
+                if($num > 0)
                 {
-                    $this->username = $row["username"];
-                    $this->password = $row["password"];
-                    if($type == "Head Of Servants")
-                    {
-                        $sql="SELECT * FROM user_type WHERE name = '$type'";
-                        $UserTypeSet = mysqli_query($con,$sql);
-                        if($roww = mysqli_fetch_array($UserTypeSet))
+                        $row = mysqli_fetch_array($AdminDataSet);
+                        $this->username = $row["username"];
+                        $this->password = $row["password"];
+                        $this->userTypeObj = new usertype($row["usertype_id"]);
+                        $Temp = $this->userTypeObj->id;
+                        $sql2 = "SELECT * FROM user_type";
+                        $UserTypeDataSet = mysqli_query($con,$sql2);
+                        $ct10 = 0;
+                        while($row = mysqli_fetch_array($UserTypeDataSet))
                         {
-                            $this->userTypeObj = new usertype($roww["id"]);
+                            if($type == $this->userTypeObj->name && $this->username == $username && $this->password == $password)
+                            {
+                                $sql3 = "SELECT * FROM usertype_pages WHERE usertype_id = '$Temp'";
+                                $result = mysqli_query($con,$sql3);
+                                $row2 = mysqli_fetch_array($result);
+                                $user_pageObj = new usertype_pages($row2["id"]);
+                                if ($user_pageObj->page_id != "")
+                                {
+                                    echo "<br><a href=".$user_pageObj->page_id->HTML."></a>";
+                                    break;
+                                }
+                                $ct10++;
+                            }
+                        }
+                        if($ct10 == 0)
+                        {
+                            echo "Error type";
+                        }
+                }
+                else
+                {
+                    $sqll = "SELECT * FROM admin";
+                    $ct1 = 0;
+                    $ct2 = 0;
+                    $ct3 = 0;
+                    $ct4 = 0;
+                    $resultt = mysqli_query($con, $sqll);
+                    $num2 = mysqli_num_rows($resultt);
+                    while($row = mysqli_fetch_array($resultt))
+                    {
+                        if($username != $row["username"] && $language == "English")
+                        {
+                            $ct1++;
+                        }
+                        if($password != $row["password"]&& $language == "English")
+                        {
+                            $ct2++;
+                        }
+                        if($username != $row["username"] && $language == "Arabic")
+                        {
+                            $ct3++;
+                        }
+                        if($password != $row["password"] && $language == "Arabic")
+                        {
+                            $ct4++;
                         }
                     }
-                    if($type == "Servant")
+                    if($ct1 == $num2)
                     {
-                        $sql="SELECT * FROM user_type WHERE name = '$type'";
-                        $UserTypeSet = mysqli_query($con,$sql);
-                        if($roww = mysqli_fetch_array($UserTypeSet))
-                        {
-                            $this->userTypeObj = new usertype($roww["id"]);
-                        }
+                        $x = new error_message_details(4);
+                        echo $x->translation_sentence_id->message . " ";
                     }
-                    if($type == "Supervisor")
+                    if($ct2 == $num2)
                     {
-                        $sql="SELECT * FROM user_type WHERE name = '$type'";
-                        $UserTypeSet = mysqli_query($con,$sql);
-                        if($roww = mysqli_fetch_array($UserTypeSet))
-                        {
-                            $this->userTypeObj = new usertype($roww["id"]);
-                        }
+                        $x = new error_message_details(2);
+                        echo $x->translation_sentence_id->message . " ";
                     }
-                    $num = mysqli_num_rows($UserDataSet);
-                    if($num == 1)
+                    if($ct3 == $num2)
                     {
-                        if($type == "Head of Servants")
-                        {
-                            header('Location:afterlogin.php');
-                        }
-                        else if($type == "Supervisor")
-                        {
-                            // will lead to a different after login page
-                        }
-                        else if($type == "Servant")
-                        {
-                            // will lead to a different after login page
-                        }
+                        $x = new error_message_details(3);
+                            echo $x->translation_sentence_id->message . " ";
                     }
-                    else
+                    if($ct4 == $num2)
                     {
-                        echo "user not found !";
+                        $x = new error_message_details(1);
+                        echo $x->translation_sentence_id->message . " ";
                     }
                 }
             }
             $con->close();
-    }
+        }
 
-    public function executeQuery($Query) {
-        if($this->userTypeObj->name == "Head Of Servants")
-        {
-            $admin = new ConcreteImp();
-            $admin->executeQuery();
-        }
-        if($this->userTypeObj->name == "Supervisor")
-        {
-            $admin = new ConcreteImp();
-            $admin->executeQuery();
-        }
-        if($this->userTypeObj->name == "Servant")
-        {
-            $admin = new ConcreteImp();
-            $admin->executeQuery();
-        }
+        public function executeQuery($Query) {
+            if($this->userTypeObj->name == "Head Of Servants")
+            {
+                $admin = new ConcreteImp();
+                $admin->executeQuery();
+            }
+            if($this->userTypeObj->name == "Supervisor")
+            {
+                $admin = new ConcreteImp();
+                $admin->executeQuery();
+            }
+            if($this->userTypeObj->name == "Servant")
+            {
+                $admin = new ConcreteImp();
+                $admin->executeQuery();
+            }
     }
 }
-//$x = new ProxyDP("gogo", 12333, "Supervisor");
+//$x = new ProxyDP("Kiro2003", "7bdfae2a3b7932a1547c231485dbe0d2a1c226e3", "Head of Servants");
 //echo $x->username . "<br>";
 //echo $x->password . "<br>";
 //echo $x->userTypeObj->name . "<br>";
-// Working !!!
+//Working !!!
 ?>
