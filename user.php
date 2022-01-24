@@ -24,6 +24,7 @@ include_once 'address.php';
     public $job;
     public $home_no;
     public $address_id;
+    public $Adapter;
     function __construct($id)
     {
         if($id != -1)
