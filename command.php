@@ -1,8 +1,8 @@
 <php
 
-interface Command {
-    public function execute();
-    public function undo();
+public interface Command {
+    public function transfer();
+    public function refund();
 }
 class Donation {
     function _costruct($id)
