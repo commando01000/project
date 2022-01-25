@@ -95,5 +95,13 @@
       <hr>
       </div>
 </form>
+
+  <form method="post" action="AdapterController.php">
+  <div class="container">
+  <hr>
+    <input type="submit" class="registerbtn" name="submit" value="Adapter Design Pattern">  
+    <hr>
+    </div>
+</form>
 </body><!-- Mortaga -->
 </html
