@@ -79,7 +79,14 @@ include_once 'address.php';
             $num = mysqli_num_rows($row);
             if($num == 0)
             {
-                $sql = "INSERT INTO user(namee,gender,usertype_id,DOB,phone_no_id,job,home_no,address_id) VALUES('$name','$gender','$usertype_id','$DOB','$phone_no_id','$job','$home_no','$address_id')";
+                 $sql = "INSERT INTO phone_no(phone_no) VALUES('$phone_no')";
+                $row = mysqli_query($con,$sql) or die (mysqli_error($con));
+                echo "Registered Successfully ! ";
+                $sql2 = "SELECT * FROM phone_no WHERE phone_no = '$phone_no'";
+                $result = mysqli_query($con,$sql2);
+                $row2 = mysqli_fetch_array($result);
+                $x = new phone_no($row2["id"]);
+                $sql = "INSERT INTO user(namee,gender,usertype_id,DOB,phone_no_id,job,home_no,address_id) VALUES('$name','$gender','$usertype_id','$DOB','$x->id','$job','$home_no','$address_id')";
                 mysqli_query($con,$sql) or die (mysqli_error($con));
                 echo "Registered Successfully ! ";
             }
