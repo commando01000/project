@@ -5,7 +5,7 @@
     {
         $username = $password = "";
         $username = trim($_POST["Username"]);
-        $password = trim($_POST["Password"]);
+        $password = sha1(trim($_POST["Password"]));
         $type = trim($_POST["type"]);
         $CreateAdmin = new admin(-1);
         $CreateAdmin->insert($username,$password,$type);
